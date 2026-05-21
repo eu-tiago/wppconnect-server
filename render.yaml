@@ -5,6 +5,11 @@ services:
     plan: free
     autoDeploy: true
 
+    disk:
+      name: wpp-data
+      mountPath: /usr/src/wpp-server/tokens
+      sizeGB: 1
+
     envVars:
       - key: SECRET_KEY
         generateValue: true
@@ -21,19 +26,8 @@ services:
       - key: LOG_LEVEL
         value: silly
 
-      - key: WEBHOOK_URL
-        value: ""
-
-      - key: WEBHOOK_BY_EVENTS
-        value: false
-
       - key: SESSION_NAME
         value: main
 
       - key: CHROME_ARGS
         value: --no-sandbox,--disable-setuid-sandbox
-
-disks:
-  - name: wpp-data
-    mountPath: /usr/src/wpp-server/tokens
-    sizeGB: 1

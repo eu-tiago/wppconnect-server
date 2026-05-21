@@ -5,11 +5,6 @@ services:
     plan: free
     autoDeploy: true
 
-    disk:
-      name: wpp-data
-      mountPath: /usr/src/wpp-server/tokens
-      sizeGB: 1
-
     envVars:
       - key: SECRET_KEY
         generateValue: true
